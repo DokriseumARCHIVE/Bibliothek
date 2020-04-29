@@ -16,11 +16,43 @@ class BibliotheksverzeichnisTest {
     }
 
     @org.junit.jupiter.api.Test
-    void gutSearchByLastnameNormalfall() {
+    void gutSearchByLastnameNormalfall1() {
         // SETUP//
         String testString = "Gefundene Buecher:\n" +
                 "\tMandy Sult: Theoretisches Testen gibt es nicht, 2016\n" +
                 "\tRonald Dump, Mandy Sult: Java mal ganz anders, 2010\n";
+        // TEST//
+        Assertions.assertEquals(testString, testBiblio.searchByLastname("Sult"));
+    }
+
+    @org.junit.jupiter.api.Test
+    void gutSearchByLastnameNormalfall2() {
+        // SETUP//
+        String testString = "";
+        // TEST//
+        Assertions.assertEquals(testString, testBiblio.searchByLastname("Sult"));
+    }
+
+    @org.junit.jupiter.api.Test
+    void gutSearchByLastnameNormalfall3() {
+        // SETUP//
+        String testString = "";
+        // TEST//
+        Assertions.assertEquals(testString, testBiblio.searchByLastname("Sult"));
+    }
+
+    @org.junit.jupiter.api.Test
+    void gutSearchByLastnameNormalfall4() {
+        // SETUP//
+        String testString = "";
+        // TEST//
+        Assertions.assertEquals(testString, testBiblio.searchByLastname("Sult"));
+    }
+
+    @org.junit.jupiter.api.Test
+    void gutSearchByLastnameNormalfall5() {
+        // SETUP//
+        String testString = "";
         // TEST//
         Assertions.assertEquals(testString, testBiblio.searchByLastname("Sult"));
     }
@@ -42,10 +74,11 @@ class BibliotheksverzeichnisTest {
         String testTitle = "Java ist auch eine Insel";
         String testYear = "2019";
         String testAuthor = "Christian Ullenboom";
+        Bibliotheksverzeichnis testLocalBiblio = testBiblio;
         //TEST//
-        testBiblio.addBuch(new Buch(testTitle, testAuthor, testYear));
-        Assertions.assertEquals(testAuthor, testBiblio.getBuch(5).getAuthor());
-        Assertions.assertEquals(testTitle, testBiblio.getBuch(5).getTitle());
-        Assertions.assertEquals(testYear, testBiblio.getBuch(5).getPublicationYear());
+        testLocalBiblio.addBuch(new Buch(testTitle, testAuthor, testYear));
+        Assertions.assertEquals(testAuthor, testLocalBiblio.getBuch(5).getAuthor());
+        Assertions.assertEquals(testTitle, testLocalBiblio.getBuch(5).getTitle());
+        Assertions.assertEquals(testYear, testLocalBiblio.getBuch(5).getPublicationYear());
     }
 }
